@@ -18,7 +18,7 @@ Edit the ahps_stations.csv and ahps_stations2.csv files to inclue only the hydro
 NOTE: There are two separate collection scripts and station files to accomodate parallell downloading of the information.  Both collect.sh and collect2.sh scripts can be executed at the same time to roughly cut in half the download time of the entire set.  These can easly be combined into one stations file if only a smaller subset of these stations are of interest to you.   
 
 ### Step 2
-Edit the collect.sh and collect2.sh files and change the input_file to match the name of the CSV files you wish them to use for collection purposes.
+If you have your own files that have station information, edit the collect.sh and collect2.sh files and change the input_file to match the name of the CSV files you wish them to use for collection purposes.  
 
 ### Step 3
 If necessary, change the awk command in the collect.sh and collect2.sh files to point to the column in your .csv file that contains the gage identifier. By default the $1 points to the first column in the CSV file as the one that contains the gage identifier.  Thange the $1 to $2 or $3 if the 2nd or 3rd column of your file is the one that contains the gage identifier.
