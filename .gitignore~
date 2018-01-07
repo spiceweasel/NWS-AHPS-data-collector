@@ -1,0 +1,9 @@
+# Project Files #
+#################
+.project
+.pyproject
+
+# Python Files #
+################
+*.pyc
+
