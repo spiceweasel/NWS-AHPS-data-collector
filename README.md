@@ -13,24 +13,22 @@ The collection script is intended to be ran as often as necessary. New informati
 
 ## Setup
 ### Step 1
-Create a spreadsheet that contains a line for each hydrological gage for which you would like to collect information.  In the spreadsheet, column 1 can be the gage identifier obtained from the NWS site for the gage you wish to obtain information from and column 2 could be the name given to that gage.  
+Edit the ahps_stations.csv and ahps_stations2.csv files to inclue only the hydrologic gages of interest.  Data will be retrieved for each gage in the file.  
 
-Col 1 | Col 2
-____________________________________
-MACA2 | MacLaren River at Denali Hwy
-MACF1 | St Marys River near Macclenney
-etc.. | etc..
-
-Save the spreadsheet as a .csv file using tab delilmited format to the directory where the collect.sh script is located.  Do not include any description header in the output file! The first line of the .csv file should be the first gage from which data should be collected.
+NOTE: There are two separate collection scripts and station files to accomodate parallell downloading of the information.  Both collect.sh and collect2.sh scripts can be executed at the same time to roughly cut in half the download time of the entire set.  These can easly be combined into one stations file if only a smaller subset of these stations are of interest to you.   
 
 ### Step 2
-Edit the collect.sh file and change the input_file to match the name of the CSV file created in the previous step.
-Additionally, change the awk command to point to the column in your .csv file that contains the gage identifier (Instructions in file or search awk positional )
+Edit the collect.sh and collect2.sh files and change the input_file to match the name of the CSV files you wish them to use for collection purposes.
 
 ### Step 3
-Make sure Python 3 is installed on the host machine.  
+If necessary, change the awk command in the collect.sh and collect2.sh files to point to the column in your .csv file that contains the gage identifier. By default the $1 points to the first column in the CSV file as the one that contains the gage identifier.  Thange the $1 to $2 or $3 if the 2nd or 3rd column of your file is the one that contains the gage identifier.
 
-If you are using virtualenv to manage your python envornments then activate a Python 3 envornment in the bash console before executing the collect.sh script.
+### Step 4
+Make sure Python 3 is installed on the host machine.
 
-Alternatively, you can change the line in the collect.sh file that executes python on the forecast_collector.py file to point to your Python 3 executable (usually python3 on Linux systems). 
- 
+### Step 5
+If you are using virtualenv to manage your python envornments then activate a Python 3 envornment in the bash console before executing the collect.sh script. 
+Alternatively, you can change the line in the collect.sh file that executes python on the forecast_collector.py file to point to your Python 3 executable (usually python3 on Linux systems).
+If your Python 3 executable is "python3" then change the line that executes the forecast_collector.py script to "python3 ./forecast_collector.py $b" 
+
+Enjoy

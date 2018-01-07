@@ -3,7 +3,7 @@
 # input_file is name of the file awk will parse to obtain the gage name.
 # File contents must be in tab separated value format (do not include a header)
 
-input_file=hydrocollect_gage_monitoring_stations.csv
+input_file=ahps_stations.csv
 
 # The line variable "$1" in the awk command below is the column the gage
 # identifer is located in the input .csv file.  This can be change to $2 etc.
