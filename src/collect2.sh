@@ -5,9 +5,9 @@
 
 input_file=hydrocollect_gage_monitoring_stations2.csv
 
-# The position parameter "$1" in the awk line below is the column the gage
-# identifer is located in the input file.  Can be change to $2 etc to represent
-# column two if the gageID in your input file is in column 2.
+# The line variable "$1" in the awk command below is the column the gage
+# identifer is located in the input .csv file.  This can be change to $2 etc.
+# to represent column 2 if the gage identifier in your input file the second column.
 
 a="$(awk '{printf "%s ", $1}' $input_file)"
 
